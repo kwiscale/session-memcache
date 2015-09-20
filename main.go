@@ -9,7 +9,7 @@ Kwiscale will now be able to use session-memcached it you set your App configura
 
 	app := kwiscale.NewApp(&kwiscale.Config{
 		SessionEgnine : "memcached",
-		SessionOptions: SessionOptions{
+		SessionEngineOptions: SessionEngineOptions{
 			"servers" : "192.168.1.5:11211"
 		}
 	})
@@ -18,7 +18,7 @@ The "servers" options could be a coma separated list in string or a slices of st
 
 	app := kwiscale.NewApp(&kwiscale.Config{
 		SessionEgnine : "memcached",
-		SessionOptions: SessionOptions{
+		SessionEngineOptions: SessionEngineOptions{
 			"servers" : []string{
 				"192.168.1.5:11211",
 				"192.168.1.6:11211",
