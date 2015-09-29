@@ -96,7 +96,7 @@ func (mc *MemcachedSessionEngine) SetSecret(s []byte) {
 }
 
 // Get a value from the session.
-func (mc *MemcachedSessionEngine) Get(handler kwiscale.IBaseHandler, key interface{}) (interface{}, error) {
+func (mc *MemcachedSessionEngine) Get(handler kwiscale.WebHandler, key interface{}) (interface{}, error) {
 	session, err := mc.store.Get(handler.GetRequest(), mc.name)
 	if err != nil {
 		return nil, err
@@ -110,14 +110,14 @@ func (mc *MemcachedSessionEngine) Get(handler kwiscale.IBaseHandler, key interfa
 }
 
 // Set value to the session.
-func (mc *MemcachedSessionEngine) Set(handler kwiscale.IBaseHandler, key, value interface{}) {
+func (mc *MemcachedSessionEngine) Set(handler kwiscale.WebHandler, key, value interface{}) {
 	session, _ := mc.store.Get(handler.GetRequest(), mc.name)
 	session.Values[key] = value
 	session.Save(handler.GetRequest(), handler.GetResponse())
 }
 
 // Clean removes the entire values in session.
-func (mc *MemcachedSessionEngine) Clean(handler kwiscale.IBaseHandler) {
+func (mc *MemcachedSessionEngine) Clean(handler kwiscale.WebHandler) {
 	session, _ := mc.store.Get(handler.GetRequest(), mc.name)
 	session.Values = make(map[interface{}]interface{})
 	session.Save(handler.GetRequest(), handler.GetResponse())
