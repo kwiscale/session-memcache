@@ -37,7 +37,7 @@ import (
 
 	"github.com/bradfitz/gomemcache/memcache"
 	gsm "github.com/bradleypeabody/gorilla-sessions-memcache"
-	"gopkg.in/kwiscale/framework.v0" // github.com/kwiscale/framework
+	"gopkg.in/kwiscale/framework.v1" // github.com/kwiscale/framework
 )
 
 func init() {
